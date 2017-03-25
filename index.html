@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postMessage</title>
+</head>
+<body>
+
+<iframe id="iframe" src="iframe.html"></iframe>
+
+</body>
+
+<script>
+    //document.location.origin if port is specified
+    var domain = document.location.origin;
+    var iframe = document.getElementById('iframe').contentWindow;
+
+    setInterval(function ()
+    {
+        console.log(domain);
+        var message = 'Hello!  The time is: ' + (new Date().getTime());
+        console.log('Hello:  ' + message);
+        iframe.postMessage(message, domain);
+    }, 3000);
+</script>
+</html>

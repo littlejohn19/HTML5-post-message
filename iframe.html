@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframe</title>
+</head>
+<body>
+
+
+<script>
+    window.addEventListener('message', function (event)
+    {
+        //document.location.origin if port is specified
+        if (event.origin !== document.location.origin) {
+            return;
+        }
+        console.log('message received:  ' + event.data, event);
+        event.source.postMessage('holla back youngin!', event.origin);
+    }, false);
+</script>
+</body>
+</html>
